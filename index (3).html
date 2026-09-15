@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Taciane Cunha — Terapia Sistêmica</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --plum-deep: #16283A;
+    --plum-mid: #1E4258;
+    --plum-soft: #3D6478;
+    --cream: #F5F3EE;
+    --ink: #202832;
+    --gold: #B4863C;
+    --lilac: #A9C7D6;
+    --line: rgba(255,255,255,0.18);
+    --line-dark: rgba(32,40,50,0.15);
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  html { scroll-behavior:smooth; }
+
+  body{
+    font-family:'Inter', sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.6;
+    font-size:17px;
+  }
+
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    line-height:1.15;
+    letter-spacing:-0.01em;
+  }
+
+  a { color:inherit; }
+
+  .wrap{
+    max-width:1120px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  .label{
+    font-size:13px;
+    color:var(--gold);
+    font-weight:600;
+    margin-bottom:14px;
+  }
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:absolute;
+    top:0; left:0; right:0;
+    z-index:5;
+    padding:28px 0;
+  }
+  nav .wrap{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .brand{
+    font-family:'Fraunces', serif;
+    font-size:19px;
+    color:var(--cream);
+    letter-spacing:0.01em;
+  }
+  .brand span{ color:var(--lilac); }
+  nav a.cta-small{
+    font-size:14px;
+    color:var(--cream);
+    border:1px solid var(--line);
+    padding:9px 18px;
+    border-radius:999px;
+    text-decoration:none;
+    transition:border-color .2s ease, background .2s ease;
+  }
+  nav a.cta-small:hover{ background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.4); }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    background:radial-gradient(120% 140% at 15% 0%, var(--plum-mid) 0%, var(--plum-deep) 55%, #0F1D29 100%);
+    color:var(--cream);
+    padding:150px 0 130px;
+    overflow:hidden;
+  }
+  .hero .wrap{
+    position:relative;
+    z-index:2;
+    max-width:1120px;
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:56px;
+    align-items:center;
+  }
+  .hero-text{ max-width:600px; }
+  .hero h1{
+    font-size:clamp(34px, 4.6vw, 54px);
+    margin-bottom:26px;
+  }
+  .hero p.sub{
+    font-size:19px;
+    color:#DCE6EA;
+    max-width:540px;
+    margin-bottom:38px;
+  }
+  .hero-ctas{
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .hero-photo{
+    position:relative;
+  }
+  .hero-photo img{
+    width:100%;
+    aspect-ratio:4/5;
+    object-fit:cover;
+    border-radius:4px;
+    border:1px solid rgba(255,255,255,0.15);
+    box-shadow:0 40px 70px -30px rgba(0,0,0,0.55);
+  }
+  @media (max-width: 860px){
+    .hero .wrap{ grid-template-columns:1fr; }
+    .hero-photo{ max-width:320px; margin-top:12px; }
+  }
+  .btn{
+    display:inline-block;
+    padding:14px 28px;
+    border-radius:4px;
+    text-decoration:none;
+    font-size:15px;
+    font-weight:500;
+    transition:transform .15s ease, opacity .15s ease;
+  }
+  .btn:hover{ transform:translateY(-1px); }
+  .btn-primary{ background:var(--gold); color:#17222B; }
+  .btn-ghost{ border:1px solid var(--line); color:var(--cream); }
+  .btn-ghost:hover{ background:rgba(255,255,255,0.06); }
+
+  .constellation{
+    position:absolute;
+    right:-40px; bottom:-60px;
+    width:420px; height:420px;
+    opacity:0.55;
+    z-index:1;
+  }
+
+  /* ---------- BRIDGE STATEMENT ---------- */
+  .bridge{
+    padding:100px 0;
+    text-align:center;
+  }
+  .bridge .wrap{ max-width:680px; }
+  .bridge h2{
+    font-size:clamp(26px, 3.4vw, 34px);
+    color:var(--plum-deep);
+  }
+  .bridge p{
+    margin-top:22px;
+    color:#4A5A66;
+    font-size:17px;
+  }
+
+  /* ---------- SPLIT: PARA VOCÊ / PARA SUA EMPRESA ---------- */
+  .split{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+  }
+  .panel{
+    padding:80px 48px;
+    position:relative;
+  }
+  .panel-you{
+    background:var(--cream);
+    color:var(--ink);
+  }
+  .panel-company{
+    background:var(--plum-deep);
+    color:var(--cream);
+  }
+  .panel h3{
+    font-size:28px;
+    margin-bottom:20px;
+  }
+  .panel-company h3{ color:var(--cream); }
+  .panel p{
+    color:#4A5A66;
+    margin-bottom:24px;
+    max-width:420px;
+  }
+  .panel-company p{ color:#C9D8DF; }
+  .panel-photo{ margin:4px 0 28px; }
+  .panel-photo img{
+    width:100%;
+    max-width:320px;
+    height:220px;
+    object-fit:cover;
+    border-radius:4px;
+    border:1px solid var(--line-dark);
+  }
+  .panel ul{
+    list-style:none;
+    margin-bottom:28px;
+  }
+  .panel ul li{
+    padding:10px 0 10px 22px;
+    border-bottom:1px solid var(--line-dark);
+    position:relative;
+    font-size:15.5px;
+    color:#2E3A44;
+  }
+  .panel-company ul li{
+    border-bottom:1px solid var(--line);
+    color:#DCE6EA;
+  }
+  .panel ul li::before{
+    content:"";
+    position:absolute;
+    left:0; top:19px;
+    width:6px; height:6px;
+    border-radius:50%;
+    background:var(--gold);
+  }
+  .panel a.link{
+    font-size:15px;
+    font-weight:600;
+    text-decoration:none;
+    border-bottom:1.5px solid var(--gold);
+    padding-bottom:2px;
+    color:inherit;
+  }
+
+  /* ---------- SIGNS SECTION ---------- */
+  .signs{
+    background:#E7ECEF;
+    padding:110px 0;
+  }
+  .signs .head{
+    max-width:600px;
+    margin-bottom:56px;
+  }
+  .signs h2{
+    font-size:clamp(28px,3.6vw,36px);
+    color:var(--plum-deep);
+  }
+  .signs .head p{
+    margin-top:18px;
+    color:#4A5A66;
+  }
+  .signs-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:0;
+    border-top:1px solid var(--line-dark);
+  }
+  .sign-item{
+    padding:26px 28px 26px 0;
+    border-bottom:1px solid var(--line-dark);
+    font-size:16px;
+    color:#263038;
+  }
+  .sign-item:nth-child(odd){
+    border-right:1px solid var(--line-dark);
+    padding-right:40px;
+  }
+  .sign-item:nth-child(even){ padding-left:40px; }
+
+  /* ---------- APPROACH / QUOTE ---------- */
+  .approach{
+    padding:120px 0;
+    background:var(--plum-mid);
+    color:var(--cream);
+    position:relative;
+  }
+  .approach .wrap{ max-width:760px; }
+  .approach .label{ color:var(--lilac); }
+  .approach h2{
+    font-size:clamp(26px,3.4vw,34px);
+    margin-bottom:28px;
+  }
+  .approach p{
+    color:#D7E3E8;
+    margin-bottom:20px;
+    font-size:17px;
+  }
+  blockquote{
+    font-family:'Fraunces', serif;
+    font-size:23px;
+    font-style:italic;
+    line-height:1.5;
+    border-left:2px solid var(--gold);
+    padding-left:26px;
+    margin:36px 0;
+    color:var(--cream);
+  }
+
+  /* ---------- EBOOK ---------- */
+  .ebook{
+    padding:110px 0;
+    background:var(--cream);
+  }
+  .ebook-grid{
+    display:grid;
+    grid-template-columns:0.85fr 1.15fr;
+    gap:64px;
+    align-items:center;
+  }
+  .ebook-cover{
+    aspect-ratio:3/4;
+    background:linear-gradient(150deg, var(--plum-mid), var(--plum-deep) 70%);
+    border-radius:2px;
+    padding:36px;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    color:var(--cream);
+    box-shadow:0 30px 60px -20px rgba(42,32,51,0.35);
+  }
+  .ebook-cover .tag{
+    font-size:11.5px;
+    letter-spacing:0.06em;
+    color:var(--lilac);
+    margin-bottom:14px;
+  }
+  .ebook-cover h4{
+    font-family:'Fraunces', serif;
+    font-size:24px;
+    font-weight:500;
+    margin-bottom:14px;
+  }
+  .ebook-cover .by{
+    font-size:13px;
+    color:#A9C0CB;
+    border-top:1px solid var(--line);
+    padding-top:14px;
+    margin-top:10px;
+  }
+  .ebook-copy h2{
+    font-size:clamp(26px,3.2vw,32px);
+    color:var(--plum-deep);
+    margin-bottom:20px;
+  }
+  .ebook-copy p{
+    color:#4A5A66;
+    margin-bottom:26px;
+    max-width:480px;
+  }
+  .form-row{
+    display:flex;
+    gap:12px;
+    max-width:460px;
+    flex-wrap:wrap;
+  }
+  .form-row input{
+    flex:1;
+    min-width:220px;
+    padding:14px 16px;
+    border:1px solid #CBD3D8;
+    background:#fff;
+    font-size:15px;
+    border-radius:3px;
+  }
+  .form-row input:focus{ outline:2px solid var(--gold); outline-offset:1px; }
+  .form-row button{
+    border:none;
+    background:var(--plum-deep);
+    color:var(--cream);
+    padding:14px 24px;
+    font-size:15px;
+    border-radius:3px;
+    cursor:pointer;
+    font-family:inherit;
+  }
+  .form-row button:hover{ background:var(--plum-mid); }
+  .form-note{
+    font-size:13px;
+    color:#7A8A96;
+    margin-top:12px;
+  }
+
+  /* ---------- CLOSING CTA ---------- */
+  .closing{
+    background:var(--plum-deep);
+    color:var(--cream);
+    padding:120px 0 110px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .closing .wrap{ max-width:620px; position:relative; z-index:2; }
+  .closing h2{
+    font-size:clamp(28px,3.8vw,40px);
+    margin-bottom:22px;
+  }
+  .closing p{
+    color:#C9D8DF;
+    margin-bottom:36px;
+    font-size:17px;
+  }
+
+  footer{
+    background:#0F1D29;
+    color:#8A9AA6;
+    padding:36px 0;
+    font-size:13.5px;
+  }
+  footer .wrap{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+
+  @media (max-width: 860px){
+    .split{ grid-template-columns:1fr; }
+    .signs-grid{ grid-template-columns:1fr; }
+    .sign-item:nth-child(odd){ border-right:none; padding-right:0; }
+    .sign-item:nth-child(even){ padding-left:0; }
+    .ebook-grid{ grid-template-columns:1fr; }
+    .ebook-cover{ max-width:280px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">Taciane Cunha <span>· Terapia Sistêmica</span></div>
+    <a class="cta-small" href="#contato">Agendar conversa</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-text">
+      <p class="label">Atendimento individual, em grupo, infantil e corporativo</p>
+      <h1>Ninguém deixa suas questões pessoais na porta de casa. Muito menos na porta da empresa.</h1>
+      <p class="sub">Terapia sistêmica para pessoas que querem entender os próprios padrões — e para empresas que precisam reconhecer o que a rotina de trabalho não resolve sozinha.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#contato">Marcar uma conversa</a>
+        <a class="btn btn-ghost" href="#guia">Baixar guia gratuito</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="https://tacianecunha.com.br/foto_taciane_azul.jpeg" alt="Taciane Cunha, terapeuta">
+    </div>
+  </div>
+  <svg class="constellation" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+    <line x1="330" y1="90" x2="240" y2="200" stroke="#A9C7D6" stroke-width="1"/>
+    <line x1="240" y1="200" x2="310" y2="260" stroke="#A9C7D6" stroke-width="1"/>
+    <line x1="330" y1="90" x2="310" y2="260" stroke="#A9C7D6" stroke-width="1"/>
+    <circle cx="330" cy="90" r="5" fill="#B4863C"/>
+    <circle cx="240" cy="200" r="4" fill="#A9C7D6"/>
+    <circle cx="310" cy="260" r="4" fill="#A9C7D6"/>
+  </svg>
+</header>
+
+<section class="bridge">
+  <div class="wrap">
+    <h2>Um casamento em crise, um filho passando por dificuldades, uma perda recente — tudo isso entra pela porta junto com a pessoa, todos os dias.</h2>
+    <p>Os padrões que alguém repete nas relações pessoais raramente ficam restritos a elas. Por isso o trabalho de Taciane acontece em dois lugares ao mesmo tempo: no consultório, com quem busca entender a própria história, e dentro das empresas, ajudando lideranças a reconhecer quando o pessoal está pesando mais do que a rotina consegue absorver.</p>
+  </div>
+</section>
+
+<section class="split">
+  <div class="panel panel-you">
+    <p class="label">Para você</p>
+    <h3>Terapia individual, de casal ou infantil</h3>
+    <p>Um espaço para entender os padrões que você repete nas relações — de onde vieram e como parar de repeti-los sem perceber.</p>
+    <div class="panel-photo">
+      <img src="https://tacianecunha.com.br/foto_4_taciane_sentada.jpeg" alt="Taciane Cunha em atendimento">
+    </div>
+    <ul>
+      <li>Atendimento individual</li>
+      <li>Terapia de casal</li>
+      <li>Atendimento infantil</li>
+      <li>Abordagem sistêmica, olhando para o contexto e não só para o sintoma</li>
+    </ul>
+    <a class="link" href="#contato">Agendar minha sessão</a>
+  </div>
+  <div class="panel panel-company">
+    <p class="label">Para sua empresa</p>
+    <h3>Apoio para RH e lideranças</h3>
+    <p>Sua equipe não deixa a vida pessoal em casa. Um olhar especializado ajuda a reconhecer os sinais e saber até onde vai o papel da empresa.</p>
+    <ul>
+      <li>Palestra ou workshop diagnóstico</li>
+      <li>Canal de escuta pontual para colaboradores</li>
+      <li>Acompanhamento contínuo para lideranças</li>
+      <li>Encaminhamento claro para apoio especializado, quando necessário</li>
+    </ul>
+    <a class="link" href="#contato" style="border-color:var(--gold); color:var(--cream);">Falar sobre minha equipe</a>
+  </div>
+</section>
+
+<section class="signs">
+  <div class="wrap">
+    <div class="head">
+      <p class="label">Os sinais</p>
+      <h2>O que costuma aparecer primeiro</h2>
+      <p>Nenhum desses sinais, isoladamente, indica algo grave. Mas quando aparecem combinados ou de forma persistente, geralmente indicam que algo pessoal está pesando mais do que a pessoa consegue absorver sozinha.</p>
+    </div>
+    <div class="signs-grid">
+      <div class="sign-item">Queda de produtividade sem uma causa aparente</div>
+      <div class="sign-item">Oscilações de humor incomuns ao longo do dia ou da semana</div>
+      <div class="sign-item">Isolamento repentino de alguém antes participativo</div>
+      <div class="sign-item">Conflitos recorrentes, desproporcionais ao motivo</div>
+      <div class="sign-item">Faltas e atrasos frequentes, sem um padrão claro</div>
+      <div class="sign-item">Reações desproporcionais a feedbacks ou mudanças de rotina</div>
+    </div>
+  </div>
+</section>
+
+<section class="approach">
+  <div class="wrap">
+    <p class="label">O olhar sistêmico</p>
+    <h2>Ninguém funciona em compartimentos separados</h2>
+    <p>Nossos comportamentos e formas de reagir não nascem no vácuo — são moldados nas relações em que crescemos e vivemos, e se manifestam em todos os ambientes que atravessamos, incluindo o trabalho.</p>
+    <blockquote>"Os padrões que uma pessoa repete nas relações pessoais raramente ficam restritos a elas."</blockquote>
+    <p>Entender isso muda a forma como você reage — seja lidando com a sua própria história, seja liderando uma equipe. Em vez de tratar cada situação como um problema isolado, é possível reconhecer o contexto humano por trás dela, sem se tornar responsável por resolvê-lo sozinho.</p>
+  </div>
+</section>
+
+<section class="ebook" id="guia">
+  <div class="wrap ebook-grid">
+    <div class="ebook-cover">
+      <p class="tag">GUIA PARA GESTÃO DE PESSOAS</p>
+      <h4>Quando o pessoal chega ao profissional</h4>
+      <p class="by">Taciane Cunha — Terapia Sistêmica</p>
+    </div>
+    <div class="ebook-copy">
+      <p class="label">Material gratuito</p>
+      <h2>Um guia para quem lidera pessoas, não só tarefas</h2>
+      <p>Como identificar quando questões emocionais e pessoais dos colaboradores estão afetando a equipe — e o que fazer a respeito, com clareza sobre até onde vai o papel da empresa.</p>
+      <form class="form-row" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Guia a caminho do seu e-mail';">
+        <input type="email" placeholder="Seu melhor e-mail" required>
+        <button type="submit">Quero o guia</button>
+      </form>
+      <p class="form-note">Sem spam. Só o material, direto na sua caixa de entrada.</p>
+    </div>
+  </div>
+</section>
+
+<section class="closing" id="contato">
+  <div class="wrap">
+    <p class="label">Próximo passo</p>
+    <h2>Vamos conversar sobre o seu momento — ou o da sua equipe?</h2>
+    <p>Cada pessoa e cada empresa tem uma dinâmica diferente. Uma conversa inicial ajuda a entender qual formato de apoio faz mais sentido agora.</p>
+    <a class="btn btn-primary" href="https://wa.me/5521970411810?text=Ol%C3%A1%20Taciane%2C%20vim%20pela%20p%C3%A1gina%20e%20gostaria%20de%20conversar." target="_blank" rel="noopener">Chamar no WhatsApp</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Taciane Cunha — Terapia Sistêmica</span>
+    <span>Atendimento individual, em grupo, infantil e corporativo</span>
+  </div>
+</footer>
+
+</body>
+</html>
